@@ -1,0 +1,29 @@
+.toast-container {
+
+    .toast-notifi {
+        img.logo-notification {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    &.success {
+        color: var(--white-base);
+
+        .toast-notifi {
+            background-color: var(--orange-base);
+        }
+    }
+    &.error {
+        color: var(--white-base);
+
+        .toast-notifi {
+            background-color: var(--error-text);
+        }
+    }
+
+    p.message {
+        margin: 0;
+        padding: 2px 4px;
+    }
+}

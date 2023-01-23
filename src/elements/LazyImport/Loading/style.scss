@@ -1,0 +1,50 @@
+div.loading {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+
+    div.logo-loading {
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+        display: -webkit-box;
+        position: relative;
+        top: 50%;
+
+        div.spinner {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border-top: 3px solid orange;
+            position: absolute;
+            -webkit-animation: spinner 1s linear infinite;
+            animation: spinner 1s linear infinite;
+        }
+
+        img {
+            width: 100px;
+            position: absolute;
+            height: 100px;
+            border-radius: 50%;
+        }
+    }
+}
+
+@-webkit-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

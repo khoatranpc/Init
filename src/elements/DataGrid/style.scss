@@ -1,0 +1,67 @@
+.data-grid {
+    * {
+        &::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+            cursor: pointer;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: #ebeaea;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    }
+
+    .ag-body-vertical-scroll {
+        width: 5px !important;
+        max-width: 5px !important;
+        min-width: 5px !important;
+
+        .ag-body-vertical-scroll-viewport {
+            min-width: 100% !important;
+        }
+    }
+
+    .ag-root-wrapper .ag-root-wrapper-body {
+        .ag-root {
+            .ag-header {
+                .text-left {
+                    .ag-header-cell-label {
+                        justify-content: flex-start !important;
+                    }
+                }
+
+                .text-right {
+                    .ag-header-cell-label {
+                        justify-content: flex-end !important;
+                    }
+                }
+
+                .text-center {
+                    .ag-header-cell-label {
+                        justify-content: center !important;
+                    }
+                }
+            }
+
+            .ag-body {
+                .ag-body-viewport.ag-row-no-animation.ag-layout-normal {
+                    .ag-center-cols-container {
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+    }
+}

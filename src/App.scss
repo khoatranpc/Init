@@ -1,0 +1,22 @@
+.theme {
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom, #0000001a, #0000001a), url('./assets/imgs/partment.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-size: 14px;
+
+
+    * {
+        &:focus {
+            outline: none;
+            box-shadow: none !important;
+        }
+    }
+
+    .text-center {
+        text-align: center;
+    }
+}

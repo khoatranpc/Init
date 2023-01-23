@@ -1,0 +1,25 @@
+.container-list-tab {
+    width: 100%;
+    height: 100%;
+
+    .custom-tab-content {
+
+        li,
+        button {
+            border: none;
+        }
+    }
+
+    .nav-tabs {
+        border: none;
+
+        .nav-link {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
+
+    .icon-left {
+        display: inline-block;
+    }
+}
