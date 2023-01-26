@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import { PATH } from './global/path';
-import Error from './components/Error';
-import { LayoutMain } from './layouts/Main';
-import { AuthenticationLayout } from './layouts/Authentication';
-import { Login } from './components/Login';
-import LazyImport from './elements/LazyImport';
-import { Register } from './components/Register';
+import { PATH } from 'global/path';
+import Error from 'components/Error';
+import { LayoutMain } from 'layouts/Main';
+import { AuthenticationLayout } from 'layouts/Authentication';
+import { Login } from 'components/Login';
+import LazyImport from 'elements/LazyImport';
+import { Register } from 'components/Register';
 import './App.scss';
 import './styles/theme.scss';
 

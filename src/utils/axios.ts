@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Obj } from "../global/interface";
+import { Obj } from "global/interface";
 import { getToken } from "./localStorage";
 
 const httpClient = axios.create({

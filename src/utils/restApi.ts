@@ -1,5 +1,5 @@
-import { METHOD } from "../global/enum";
-import { Action, Obj } from "../global/interface";
+import { METHOD } from "global/enum";
+import { Action, Obj } from "global/interface";
 import httpClient from "./axios";
 
 export default async function actionRequest(uri: string, method: METHOD, request: Action) {

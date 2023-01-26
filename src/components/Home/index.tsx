@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux'
-import { State } from '../../redux-saga/reducer';
-import { uuid } from '../../utils';
+import { State } from 'redux-saga/reducer';
+import { uuid } from 'utils';
 import { queryHeaderAction } from './action';
-import DataGrid from '../../elements/DataGrid';
-import { GridApi } from '../../global/interface';
+import DataGrid from 'elements/DataGrid';
+import { GridApi } from 'global/interface';
 import { ColDef, ColGroupDef } from 'ag-grid-community';
 const CellRender = () => {
   return <div>khoa đẹp trai</div>

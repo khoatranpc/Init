@@ -1,4 +1,4 @@
-import { Action } from "../global/interface";
+import { Action } from "global/interface";
 
 const createReducer = (success: string, failed: string, clear?: string) => {
     return (state: Record<string, unknown> | null = null, action: Action) => {

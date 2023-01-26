@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import * as Yup from 'yup';
-import { Toaster } from '../../elements/Toaster';
+import { Toaster } from 'elements/Toaster';
 import './style.scss';
 
 const validationSchema = Yup.object({

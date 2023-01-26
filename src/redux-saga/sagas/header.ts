@@ -1,5 +1,5 @@
-import { METHOD } from "../../global/enum"
-import watchRequest from "../../utils/saga"
+import { METHOD } from "global/enum"
+import watchRequest from "utils/saga"
 import { HEADER_REQUEST } from "../actions"
 
 export function* queryHeader(): Generator {
