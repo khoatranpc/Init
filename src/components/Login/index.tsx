@@ -1,10 +1,17 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import * as Yup from 'yup';
+import { ROLE } from 'global/enum';
+import { PATH } from 'global/path';
+import { Obj, Query } from 'global/interface';
+import { State } from 'redux-saga/reducer';
+import { queryLoginUser } from './action';
 import { Toaster } from 'elements/Toaster';
+import { ButtonCustom } from 'elements/ButtonCustom';
 import './style.scss';
 
 const validationSchema = Yup.object({
@@ -15,6 +22,10 @@ const validationSchema = Yup.object({
         .required('Bạn chưa nhập mật khẩu!')
 })
 export const Login = () => {
+    const dispatch = useDispatch();
+    const [loading, setLoading] = useState(false);
+    const [showToast, setShowToast] = useState(false);
+    const userLogin = useSelector((state: State) => state.userLogin);
     const { handleSubmit, values, handleBlur, handleChange, errors, touched, isValid } = useFormik({
         initialValues: {
             email: '',
@@ -22,10 +33,34 @@ export const Login = () => {
         },
         validationSchema,
         onSubmit(values) {
-            console.log(values)
+            const payload: Query = {
+                body: values
+            }
+            dispatch(queryLoginUser(payload));
+            setLoading(true);
         }
     });
     const navigate = useNavigate();
+    useEffect(() => {
+        if (userLogin) {
+            setLoading(false);
+            setShowToast(true);
+            if (userLogin.success) {
+                if ((userLogin?.response as Obj)?.data.token) {
+                    localStorage.setItem('access_token', 'Bearer ' + (userLogin?.response as Obj)?.data.token as string);
+                }
+                setTimeout(() => {
+                    switch ((userLogin?.response as Obj)?.data.userInfor.role as ROLE) {
+                        case ROLE.STUDENT:
+                            navigate(PATH.STUDENT_NO_ROLE.HOME.route, { replace: true });
+                            break;
+                        default:
+                            break;
+                    }
+                }, 1500)
+            }
+        }
+    }, [userLogin])
     return (
         <div className="login-page">
             <h3><span>Đăng nhập</span></h3>
@@ -42,9 +77,7 @@ export const Login = () => {
                     {errors.password && touched.password && <p className="error-text">{errors.password}</p>}
                 </Form.Group>
                 <div className="btn-fnc">
-                    <Button type="submit" className="btn-login">
-                        Đăng nhập
-                    </Button>
+                    <ButtonCustom type="submit" className="btn-login" text='Đăng nhập' loading={loading} />
                     <Button className="btn-switch-register" onClick={() => {
                         navigate('/auth/register', { replace: true })
                     }}>
@@ -52,7 +85,15 @@ export const Login = () => {
                     </Button>
                 </div>
             </Form>
-            {/* <Toaster position='top-center' message='Đăng nhập thành công' /> */}
+            <p style={{ textAlign: 'right' }}><Link to="/auth/forgot-password">Quên mật khẩu?</Link></p>
+            <Toaster
+                show={showToast}
+                onClose={() => {
+                    setShowToast(false);
+                }}
+                type={userLogin?.success as boolean}
+                position='top-center'
+                message={userLogin?.response?.message as string} />
         </div>
     )
 }

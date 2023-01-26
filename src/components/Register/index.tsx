@@ -5,12 +5,12 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { GENDER } from '../../global/enum';
-import { State } from '../../redux-saga/reducer';
+import { GENDER } from 'global/enum';
+import { State } from 'redux-saga/reducer';
 import { USER_CREATE_CLEAR } from '../../redux-saga/reducers/user';
 import { queryCreateUser } from './action';
-import { Toaster } from '../../elements/Toaster';
-import LoadingAction from '../LoadingAction';
+import { Toaster } from 'elements/Toaster';
+import LoadingAction from 'components/LoadingAction';
 import './style.scss';
 
 const validationSchema = Yup.object({

@@ -17,10 +17,8 @@ export interface Obj {
 }
 export interface Query {
     body?: Obj;
-    params?: {
-        [k: string]: {} | undefined
-    };
-    reqParams?: Array<string>;
+    query?: Obj;
+    params?: Array<string>;
 }
 export interface GridApi extends AgGridReact {
 

@@ -23,8 +23,12 @@ export const PATH = {
             route: 'login'
         },
         REGISTER: {
-            title: 'Đăng lý',
+            title: 'Đăng ký',
             route: 'register'
+        },
+        FORGOT_PASSWORD: {
+            title: 'Lấy lại mật khẩu',
+            route: 'forgot-password'
         },
     },
 }

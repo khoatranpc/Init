@@ -9,3 +9,8 @@ export enum GENDER {
     FM = "FM",
     AN = "AN"
 }
+export enum ROLE {
+    STUDENT = 'STUDENT',
+    TEACHER = 'TEACHER',
+    ADMIN = 'ADMIN'
+}
