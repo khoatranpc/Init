@@ -1,12 +1,12 @@
-import { METHOD } from "../global/enum";
-import { Action, Obj } from "../global/interface";
+import { METHOD } from "global/enum";
+import { Action, Obj } from "global/interface";
 import httpClient from "./axios";
 
 export default async function actionRequest(uri: string, method: METHOD, request: Action) {
     try {
         let response;
         let parseUri = uri;
-        const listReqParams = request.payload?.query?.reqParams as Array<string>;
+        const listReqParams = request.payload?.query?.params as Array<string>;
         if (listReqParams && parseUri.includes('$params')) {
             listReqParams.forEach((_, idx) => {
                 parseUri = parseUri.replace('$params', (listReqParams)[idx] as string);
@@ -17,7 +17,7 @@ export default async function actionRequest(uri: string, method: METHOD, request
         }
         switch (method) {
             case METHOD.GET:
-                response = httpClient.get(parseUri as string, request.payload?.query?.params).then(
+                response = await httpClient.get(parseUri as string, { params: request.payload?.query?.query }).then(
                     (response) => {
                         return response;
                     },
@@ -27,7 +27,7 @@ export default async function actionRequest(uri: string, method: METHOD, request
                 );
                 break;
             case METHOD.POST:
-                response = httpClient.post(parseUri as string, request.payload?.query?.body, request.payload?.query?.params).then(
+                response = await httpClient.post(parseUri as string, request.payload?.query?.body, { params: request.payload?.query?.query }).then(
                     (response) => {
                         return response;
                     },
@@ -37,7 +37,7 @@ export default async function actionRequest(uri: string, method: METHOD, request
                 );
                 break;
             case METHOD.PUT:
-                response = httpClient.put(parseUri as string, request.payload?.query?.body, request.payload?.query?.params).then(
+                response = await httpClient.put(parseUri as string, request.payload?.query?.body, { params: request.payload?.query?.query }).then(
                     (response) => {
                         return response;
                     },
@@ -47,7 +47,7 @@ export default async function actionRequest(uri: string, method: METHOD, request
                 );
                 break;
             case METHOD.DELETE:
-                response = httpClient.delete(parseUri as string, request.payload?.query?.params).then(
+                response = await httpClient.delete(parseUri as string, { params: request.payload?.query?.query }).then(
                     (response) => {
                         return response;
                     },

@@ -1,6 +1,6 @@
 import { takeLatest } from "redux-saga/effects";
-import { METHOD } from "../global/enum";
-import { Action } from "../global/interface";
+import { METHOD } from "global/enum";
+import { Action } from "global/interface";
 import store from "../redux-saga/store";
 import actionRequest from "./restApi";
 
