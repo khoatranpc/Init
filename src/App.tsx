@@ -7,6 +7,7 @@ import { AuthenticationLayout } from 'layouts/Authentication';
 import { Login } from 'components/Login';
 import LazyImport from 'elements/LazyImport';
 import { Register } from 'components/Register';
+import { ResetPassowrd } from 'components/ResetPassword';
 import { ForgotPassword } from 'components/ForgotPassword';
 import './App.scss';
 import './styles/theme.scss';
@@ -44,6 +45,7 @@ function App() {
           <Route path={PATH.AUTH.LOGIN.route} element={<Login />} />
           <Route path={PATH.AUTH.REGISTER.route} element={<Register />} />
           <Route path={PATH.AUTH.FORGOT_PASSWORD.route} element={<ForgotPassword />} />
+          <Route path={PATH.AUTH.RESET_PASSWORD.route} element={<ResetPassowrd />} />
         </Route>
         <Route path={PATH.STUDENT_NO_ROLE.HOME.route} element={<LayoutMain />} />
         <Route path='*' element={<Error />} />

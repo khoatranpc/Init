@@ -1,4 +1,4 @@
-.forgot-password-page {
+.reset-password-page {
     width: 50vw;
     height: fit-content;
     background: linear-gradient(rgba(255, 255, 255, 0.912), rgba(255, 255, 255, 0.912)), url('../../assets/imgs/logo.png');
@@ -8,11 +8,6 @@
     color: var(--black);
     padding: 0.7rem 1rem;
     border-radius: 5px;
-
-    p.text-under {
-        margin-bottom: 0;
-        text-align: right;
-    }
 
     .error-text {
         color: var(--error-text);
@@ -25,6 +20,7 @@
     .btn-fnc {
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
         .btn-login {
             background-color: var(--orange-base);

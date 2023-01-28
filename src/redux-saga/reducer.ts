@@ -1,11 +1,12 @@
 import { combineReducers } from "redux";
 import { HeaderReducer } from "components/Home/reducer";
-import { UserCreate, UserForgotPassword, UserLogin } from "./reducers/user";
+import { UserCreate, UserForgotPassword, UserLogin, UserResetPassword } from "./reducers/user";
 const rootReducer = combineReducers({
     headerReducer: HeaderReducer,
     userCreate: UserCreate,
     userLogin: UserLogin,
-    userForgotPassword: UserForgotPassword
+    userForgotPassword: UserForgotPassword,
+    userResetPassword: UserResetPassword
 });
 
 export type State = ReturnType<typeof rootReducer>;

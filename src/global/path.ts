@@ -30,5 +30,9 @@ export const PATH = {
             title: 'Lấy lại mật khẩu',
             route: 'forgot-password'
         },
+        RESET_PASSWORD: {
+            title: 'Thay đổi mật khẩu',
+            route: 'reset-password/:email/:verifyCode'
+        }
     },
 }
