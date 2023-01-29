@@ -8,6 +8,10 @@
     background-attachment: fixed;
     font-size: 14px;
 
+    &:has(.container-main) {
+        padding-top: 8.1rem;
+    }
+
 
     * {
         &:focus {

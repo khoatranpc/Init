@@ -61,7 +61,8 @@ export default async function actionRequest(uri: string, method: METHOD, request
     } catch (error) {
         return {
             data: {
-                message: (error as Obj).message as string
+                message: (error as Obj).message as string,
+                status: false
             }
         }
     }

@@ -2,10 +2,17 @@ import { Component } from 'react';
 import logo from 'assets/imgs/logo.png';
 import './style.scss';
 
-class LoadingAction extends Component {
+interface Props {
+    children?: React.ReactElement;
+    className?: string;
+}
+class LoadingAction extends Component<Props> {
+    constructor(props: Props) {
+        super(props);
+    }
     render() {
         return (
-            <div className="loading-action">
+            <div className={`loading-action ${this.props.className ? this.props.className : ''}`}>
                 <div className="logo-loading">
                     <img src={logo} alt="Phoenix" />
                     <div className="spinner"></div>

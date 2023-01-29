@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { State } from 'redux-saga/reducer';
 import { useFormik } from 'formik';
 import Form from 'react-bootstrap/Form';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import { Input } from 'antd';
 import * as Yup from 'yup';
 import { Query } from 'global/interface';
 import { Toaster } from 'elements/Toaster';
@@ -52,7 +54,11 @@ export const ResetPassowrd = () => {
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicPassword" >
                     <Form.Label>Mật khẩu mới <span className="error-text">*</span></Form.Label>
-                    <Form.Control isInvalid={!isValid && errors.password ? true : false} type="password" name="password" onBlur={handleBlur} onChange={handleChange} placeholder="Password" value={values.password} />
+                    <Input.Password
+                        type="password" name="password" onBlur={handleBlur} onChange={handleChange} placeholder="Password" value={values.password}
+                        status={`${!isValid && errors.password ? 'error' : ''}`}
+                        iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                    />
                     {errors.password && touched.password && <p className="error-text">{errors.password}</p>}
                 </Form.Group>
                 <div className="btn-fnc">

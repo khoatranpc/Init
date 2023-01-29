@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import { useSelector } from 'react-redux';
+import { State } from 'redux-saga/reducer';
 import { Content } from '../../global/interface';
 import './style.scss';
 
@@ -11,6 +13,7 @@ interface Props {
 
 export const TabContent = (props: Props) => {
     const [crrComponent, setCrrComponent] = useState<string>(props.listContent[0].key);
+    const crrUser = useSelector((state: State) => state.userLogin);
     return (
         <div className="container-list-tab">
             <Tabs
@@ -28,6 +31,7 @@ export const TabContent = (props: Props) => {
                 }}
             >
                 {props.listContent.map((item) => {
+                    if (item.isAuth && !crrUser) return;
                     return (
                         <Tab eventKey={item.key} title={item.title} key={item.key} >
                             {crrComponent === item.key && item.component}

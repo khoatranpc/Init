@@ -26,6 +26,7 @@ export interface GridApi extends AgGridReact {
 export interface Content {
     key: string;
     component: React.ReactElement;
-    title?: string;
+    title?: string | React.ReactElement;
     customClick?(): void;
+    isAuth?: boolean;
 }

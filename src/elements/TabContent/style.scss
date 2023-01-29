@@ -3,6 +3,13 @@
     height: 100%;
 
     .custom-tab-content {
+        padding: 0.5rem 2rem;
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--white-base);
 
         li,
         button {
@@ -12,14 +19,33 @@
 
     .nav-tabs {
         border: none;
+        box-shadow: #00000010 0px 3px 6px, #00000010 0px 3px 6px;
+
+        .nav-item {
+            margin: 0 1rem;
+        }
 
         .nav-link {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
+            font-weight: 600;
+            color: var(--black);
+            padding: 0 !important;
+
+            &.active,
+            &:hover {
+                color: var(--orange-base);
+            }
+        }
+
+        li {
+            display: flex;
+            align-items: center;
         }
     }
 
     .icon-left {
         display: inline-block;
     }
+
 }
