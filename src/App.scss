@@ -1,17 +1,82 @@
+@import "~video-react/styles/scss/video-react";
+
+* {
+    transition: 0.2s;
+
+    &::-webkit-scrollbar {
+        width: 0.2rem;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--orange-base);
+        width: 0;
+        border-radius: 1rem;
+    }
+}
+
 .theme {
     width: 100%;
     min-height: 100vh;
     background-image: linear-gradient(to bottom, #0000001a, #0000001a), url('./assets/imgs/partment.jpg');
+
+    &:has(.container-admin-layout) {
+        background-color: rgba(255, 255, 255, 0.421);
+        background-image: none;
+    }
+
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     font-size: 14px;
+    overflow-x: hidden;
 
     &:has(.container-main) {
         padding-top: 8.1rem;
     }
 
+    .ant-checkbox-wrapper {
+
+        &:hover {
+            .ant-checkbox-checked:not(.ant-checkbox-disabled) .ant-checkbox-inner {
+                background-color: var(--orange-base) !important;
+                border: var(--orange-base) !important;
+            }
+        }
+
+        .ant-checkbox-checked:not(.ant-checkbox-disabled):after {
+            border: var(--orange-base) !important;
+        }
+
+        .ant-checkbox.ant-checkbox-checked {
+            .ant-checkbox-inner {
+                background-color: var(--orange-base);
+                border: var(--orange-base);
+            }
+        }
+    }
+
+    .ant-radio-wrapper {
+
+        &:hover {
+            .ant-radio-checked:not(.ant-radio-disabled) .ant-radio-inner {
+                background-color: var(--orange-base) !important;
+                border: var(--orange-base) !important;
+            }
+        }
+
+        .ant-radio-checked:not(.ant-radio-disabled):after {
+            border: var(--orange-base) !important;
+        }
+
+        .ant-radio.ant-radio-checked {
+            .ant-radio-inner {
+                background-color: var(--orange-base);
+                border: var(--orange-base);
+            }
+        }
+    }
 
     * {
         &:focus {

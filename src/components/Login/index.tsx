@@ -8,7 +8,6 @@ import { Input } from 'antd';
 import Form from 'react-bootstrap/Form';
 import * as Yup from 'yup';
 import { Obj, Query } from 'global/interface';
-import { useRedirectRoute } from 'utils/hooks';
 import { State } from 'redux-saga/reducer';
 import { queryLoginUser } from './action';
 import { Toaster } from 'elements/Toaster';
@@ -27,7 +26,6 @@ export const Login = () => {
     const [loading, setLoading] = useState(false);
     const [showToast, setShowToast] = useState(false);
     const userLogin = useSelector((state: State) => state.userLogin);
-    const redirect = useRedirectRoute();
     const { handleSubmit, values, handleBlur, handleChange, errors, touched, isValid } = useFormik({
         initialValues: {
             email: '',
@@ -51,9 +49,6 @@ export const Login = () => {
                 if ((userLogin?.response as Obj)?.data.token) {
                     localStorage.setItem('access_token', 'Bearer ' + (userLogin?.response as Obj)?.data.token as string);
                 }
-                setTimeout(() => {
-                    redirect();
-                }, 1500)
             }
         }
     }, [userLogin])
@@ -96,7 +91,7 @@ export const Login = () => {
                 }}
                 type={userLogin?.success as boolean}
                 position='top-center'
-                message={userLogin?.response?.message as string} />
+                message={(userLogin?.response as Obj)?.message as string} />
         </div>
     )
 }

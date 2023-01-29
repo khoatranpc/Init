@@ -1,0 +1,36 @@
+.container-teacher-introduction {
+    padding: 0 2rem;
+
+    .title {
+        text-align: center;
+    }
+
+    .container-thumbnail-teacher {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+
+        .item {
+            width: 25%;
+            padding: 1rem;
+
+
+            img {
+                max-width: 100%;
+            }
+
+            .teacher-name {
+                text-align: center;
+            }
+
+            .round-item {
+                transition: 0.2s;
+                cursor: pointer;
+
+                &:hover {
+                    transform: translateY(-0.5rem);
+                }
+            }
+        }
+    }
+}

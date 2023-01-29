@@ -1,0 +1,47 @@
+.container-detail-teacher {
+    .cr-p {
+        cursor: pointer;
+    }
+
+    .main-content {
+        width: 100%;
+
+        .information-introduction {
+            max-width: 50%;
+            display: flex;
+            margin: 0 auto;
+            gap: 1rem;
+
+            .item {
+                flex: 1;
+
+                .name-teacher {
+                    font-size: 2rem;
+                    margin: 0;
+                    font-weight: 500;
+                    margin-bottom: 1rem;
+                }
+
+                p {
+                    margin: 0;
+                }
+
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .class-teaching {
+            max-width: 100%;
+            padding-bottom: 1rem;
+
+            .class-major {
+                display: flex;
+                flex-wrap: wrap;
+                max-width: 100%;
+
+            }
+        }
+    }
+}

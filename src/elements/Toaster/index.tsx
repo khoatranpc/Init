@@ -25,7 +25,7 @@ interface Props {
 export const Toaster = (props: Props) => {
     return (
         <ToastContainer position={props.position ? props.position : 'top-end'} className={props.type ? 'success' : 'error'} >
-            <Toast className="toast-notifi" animation onClose={() => props.onClose()} show={props.show} delay={3000} autohide>
+            <Toast className="toast-notifi" animation onClose={() => props.onClose()} show={props.show} delay={2000} autohide>
                 <Toast.Header>
                     <img
                         src={logo}

@@ -66,7 +66,7 @@ export const ForgotPassword = () => {
                 }}
                 type={requestForgotPassword?.success as boolean}
                 position='top-center'
-                message={requestForgotPassword?.response?.message as string} />
+                message={(requestForgotPassword?.response as Obj)?.message as string} />
         </div>
     )
 }

@@ -1,6 +1,9 @@
-import React from 'react';
-import { Anchor } from 'antd';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Anchor, Steps } from 'antd';
+import { useJumpTab } from 'utils/hooks';
 import CarouselCustom, { ItemCarousel } from 'elements/Carousel';
+import { Toaster } from 'elements/Toaster';
 import slider from 'assets/imgs/slider_2.webp';
 import total from 'assets/imgs/total.jpg';
 import sexy from 'assets/imgs/sx.jpg';
@@ -8,7 +11,8 @@ import polkImg from 'assets/imgs/polk.webp';
 import { modernDance, polk, reasonPhoenix } from './data';
 import './style.scss';
 
-export const Home = () => {
+
+const Home = () => {
   const listItem: ItemCarousel[] = [
     {
       img: <img src={slider} alt="sexy" />,
@@ -19,6 +23,13 @@ export const Home = () => {
       key: 'INTRO'
     },
   ];
+  const [toast, setToast] = useState(false);
+  const jump = useJumpTab();
+
+  const jumpTab = (key: string) => {
+    jump(key);
+  }
+
   return (
     <div className="container-home">
       <div className="anchor-phoenix">
@@ -82,9 +93,8 @@ export const Home = () => {
               <p>
                 Để cung cấp đầy đủ các dịch vụ với chất lượng tốt nhất, chúng tôi luôn cố gắng phát triển và hoàn thiện các dịch vụ, cơ sở. Bên cạnh đó giảng viên của chúng tôi luôn có tinh thần ham học hỏi, trau dồi kiến thức để đem đến cho học viên những lớp học thú vị.
                 <br />
-                Hiện tại
-                <strong>Phoenix Dance Studio</strong>
-                đang cung cấp các khóa học từ cơ bản đến nâng cao và các dịch vụ sau:
+                Hiện tại&nbsp;
+                <strong>Phoenix Dance Studio</strong>&nbsp;đang cung cấp các khóa học từ cơ bản đến nâng cao và các dịch vụ sau:
               </p>
             </div>
             <div className="modern-dance subject">
@@ -118,9 +128,50 @@ export const Home = () => {
               <iframe width="800" height="450" src="https://www.youtube.com/embed/WFCHTihpuVY" title="[NHẢY DÂN TỘC CỰC CHẤT] ĐỂ MỊ NÓI CHO MÀ NGHE - HOÀNG THUỲ LINH choreography by PHOENIX Dance Studio" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
             </div>
           </div>
-          <div className="guide-join-phoenix"></div>
+          <div className="guide-join-phoenix subject" id="sign-up">
+            <h3>Các bước để trở thành học viên tại Phoenix</h3>
+            <Steps
+              size="small"
+              className="step-to-join"
+              direction="vertical"
+              current={3}
+              items={[
+                {
+                  title: <><Link to={'/auth/register'}>Đăng ký tài khoản tại đây.</Link> <small>(Nếu chưa có)</small></>,
+                  status: 'process'
+                },
+                {
+                  title: <>
+                    Lựa chọn
+                    <u
+                      className="color-blue-base"
+                      onClick={() => {
+                        jumpTab('TEACHER')
+                      }}
+                    >
+                      &nbsp;Giáo viên
+                    </u>,
+                    <u className="color-blue-base"
+                      onClick={() => {
+                        jumpTab('COURSES')
+                      }}
+                    >
+                      &nbsp;Lớp học
+                    </u> mà bạn mong muốn
+                  </>,
+                  status: 'process'
+                },
+                {
+                  title: <strong>Tham gia ngay cùng Phoenix Dance Studio</strong>,
+                  status: 'process'
+                },
+              ]}
+            />
+            <Toaster position='bottom-end' show={toast} onClose={() => { setToast(false) }} type={false} message={'Bạn cần đăng nhập trước!'} />
+          </div>
         </div>
       </div>
     </div >
   )
 }
+export default Home;

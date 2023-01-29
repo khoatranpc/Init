@@ -1,0 +1,75 @@
+.container-coures {
+    h1.title-page {
+        text-align: center;
+    }
+
+    .main-show-coures {
+        padding: 0 3rem;
+        display: flex;
+
+        .section-control {
+            flex: 0.15;
+            border-right: 1px solid var(--orange-base);
+
+            .title {
+                padding: 0.1rem 0;
+                display: flex;
+                align-items: center;
+                gap: 0.3rem;
+
+                .icon {
+                    width: 1rem;
+                    height: 1rem;
+                }
+            }
+
+            .cate-gory-teacher {
+                .list-teacher {
+                    display: flex;
+                    flex-direction: column;
+                    padding-left: 0.5rem;
+
+                    label {
+                        margin: 0;
+                    }
+                }
+            }
+
+            .list-coures-major {
+                .list-major {
+                    padding-left: 0.5rem;
+
+                    .radio-major {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+
+        .main-concept {
+            flex: 0.9;
+
+            .status-course {
+                text-align: right;
+                box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+
+                .ant-select {
+                    width: fit-content !important;
+                    margin-left: 0.3rem;
+                }
+            }
+
+            .show-courses {
+                padding-top: 2rem;
+                font-size: 0.8rem;
+                display: flex;
+                flex-wrap: wrap;
+
+                .item-class {
+                    width: 25%;
+                }
+            }
+        }
+    }
+}

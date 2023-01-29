@@ -19,7 +19,7 @@ const createReducer = (success: string, failed: string, clear?: string) => {
             case clear:
                 return null;
             default:
-                return null;
+                return state;
         }
     }
 }

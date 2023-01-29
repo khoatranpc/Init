@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, Link, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { State } from 'redux-saga/reducer';
 import { useFormik } from 'formik';
@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { Input } from 'antd';
 import * as Yup from 'yup';
-import { Query } from 'global/interface';
+import { Obj, Query } from 'global/interface';
 import { Toaster } from 'elements/Toaster';
 import { ButtonCustom } from 'elements/ButtonCustom';
 import Error from 'components/Error';
@@ -74,7 +74,7 @@ export const ResetPassowrd = () => {
                 }}
                 type={userResetPassword?.success as boolean}
                 position='top-center'
-                message={userResetPassword?.response?.message as string} />
+                message={(userResetPassword?.response as Obj)?.message as string} />
         </div>
     )
 }

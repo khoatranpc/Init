@@ -85,5 +85,32 @@
             justify-content: center;
             margin-top: 1rem;
         }
+
+        .guide-join-phoenix {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .ant-steps.ant-steps-vertical {
+                width: fit-content;
+
+                u.color-blue-base {
+                    color: var(--blue-base);
+                    cursor: pointer;
+                }
+
+                .ant-steps-item-icon {
+                    background-color: var(--orange-base);
+                    border-color: var(--orange-base);
+                }
+
+                .ant-steps-item-tail {
+                    &::after {
+                        background-color: var(--orange-base);
+                        width: 1px;
+                    }
+                }
+            }
+        }
     }
 }

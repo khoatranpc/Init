@@ -1,0 +1,39 @@
+.header-admin-layout {
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: #00000010 0px 3px 6px, #00000010 0px 3px 6px;
+
+    p {
+        margin: 0 !important;
+    }
+
+    .end-row {
+        .user-circle {
+            cursor: pointer;
+        }
+
+        font-weight: 500;
+
+        .show-drop-down {
+            p {
+                color: var(--black);
+            }
+        }
+
+        .admin {
+            display: flex;
+            flex-direction: column;
+        }
+
+        small {
+            font-size: 0.5rem !important;
+        }
+    }
+
+    img {
+        max-width: 5rem;
+    }
+}

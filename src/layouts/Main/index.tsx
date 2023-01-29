@@ -4,37 +4,42 @@ import { useSelector } from 'react-redux';
 import { Content } from '../../global/interface';
 import { useUserLogout } from 'utils/hooks';
 import { State } from 'redux-saga/reducer';
-import { Home } from '../../components/Home';
 import { AuthProtect } from 'components/AuthProtect';
-import { TabContent } from '../../elements/TabContent';
+import Courses from 'components/Courses';
 import { LogOut } from 'elements/Logout';
+import LazyImport from 'elements/LazyImport';
 import logo from 'assets/imgs/logo.webp';
 import './style.scss';
 
-export const LayoutMain = () => {
+const TabContent = React.lazy(() => import('elements/TabContent'));
+const Home = React.lazy(() => import('components/Home'));
+const Footer = React.lazy(() => import('components/Footer'));
+const Teacher = React.lazy(() => import('components/Teacher'));
+
+const LayoutMain = () => {
     const navigate = useNavigate();
     const crrUser = useSelector((state: State) => state.userLogin);
     const logout = useUserLogout();
     const listTab: Content[] = [
         {
-            component: <Home />,
-            title: <img src={logo} alt="phoenix" className="logo-phoenix"/>,
+            component: <LazyImport><Home /></LazyImport>,
+            title: <img src={logo} alt="phoenix" className="logo-phoenix" />,
             key: 'LOGO'
         },
         {
-            component: <Home />,
+            component: <LazyImport><Home /></LazyImport>,
             title: 'Trang chủ',
             key: 'HOME',
         },
         {
-            component: <>Teacher</>,
+            component: <LazyImport><Teacher /></LazyImport>,
             title: 'Giáo viên',
             key: 'TEACHER',
         },
         {
-            component: <>Lớp học</>,
-            title: 'Lớp học',
-            key: 'CLASSESS',
+            component: <LazyImport><Courses /></LazyImport>,
+            title: 'Khóa học',
+            key: 'COURSES',
         },
         {
             component: <>Lớp học của tôi</>,
@@ -66,15 +71,14 @@ export const LayoutMain = () => {
                 }
             },
         ],
-
     ]
 
 
     return (
-        <AuthProtect>
-            <div className="container-main">
-                <TabContent listContent={listTab} />
-            </div>
-        </AuthProtect>
+        <div className="container-main">
+            <LazyImport><TabContent listContent={listTab} /></LazyImport>
+            <LazyImport><Footer /></LazyImport>
+        </div>
     )
 }
+export default LayoutMain;

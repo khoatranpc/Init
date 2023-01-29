@@ -30,3 +30,35 @@ export interface Content {
     customClick?(): void;
     isAuth?: boolean;
 }
+export interface PayloadJumpTab {
+    idTab?: string,
+    data?: Obj
+}
+export interface JumpTabAction extends AnyAction {
+    type: string;
+    payload: PayloadJumpTab
+}
+export interface PayloadToast {
+    show?: boolean;
+    message?: string;
+    type?: boolean;
+    position?: 'top-start' |
+    'top-center' |
+    'top-end' |
+    'middle-start' |
+    'middle-center' |
+    'middle-end' |
+    'bottom-start' |
+    'bottom-center' |
+    'bottom-end';
+}
+export interface ToastAction extends AnyAction {
+    type: string;
+    payload: PayloadToast
+}
+export interface ViewDetailCourse extends AnyAction {
+    type: string;
+    payload: {
+        id: string
+    }
+}

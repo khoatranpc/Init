@@ -8,6 +8,7 @@ import Form from 'react-bootstrap/Form';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { Input } from 'antd';
 import { GENDER } from 'global/enum';
+import { Obj } from 'global/interface';
 import { State } from 'redux-saga/reducer';
 import { USER_CREATE_CLEAR } from '../../redux-saga/reducers/user';
 import { queryCreateUser } from './action';
@@ -159,7 +160,7 @@ export const Register = () => {
                 type={createUser?.success as boolean}
                 show={showToast}
                 position='top-center'
-                message={`${createUser?.response?.message as string}${createUser?.success ? ' Login now.' : ''}`}
+                message={`${(createUser?.response as Obj)?.message as string}${createUser?.success ? ' Login now.' : ''}`}
             />
         </div>
     )
