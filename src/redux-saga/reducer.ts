@@ -1,4 +1,4 @@
-import { HandleViewDetailCourse, MoveTabControl, ToastHandle } from "global/global-reducer";
+import { HandleViewDetailCourse, HandleViewDetailUser, MoveTabControl, ToastHandle } from "global/global-reducer";
 import { combineReducers } from "redux";
 import { DataCompany } from "./reducers/company";
 import { UserCreate, UserForgotPassword, UserLogin, UserResetPassword } from "./reducers/user";
@@ -7,6 +7,7 @@ const rootReducer = combineReducers({
     moveTabControl: MoveTabControl,
     toastHandle: ToastHandle,
     currentViewDetailCourse: HandleViewDetailCourse,
+    handleViewDetailUser:HandleViewDetailUser,
     /* User */
     userCreate: UserCreate,
     userLogin: UserLogin,

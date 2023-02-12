@@ -3,6 +3,8 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { PATH } from 'global/path';
 import { toastMessage } from 'global/global-action';
+import { Obj } from 'global/interface';
+import { ROLE } from 'global/enum';
 import { State } from 'redux-saga/reducer';
 import { AuthenticationLayout } from 'layouts/Authentication';
 import Layout from 'layouts';
@@ -15,11 +17,10 @@ import LazyImport from 'elements/LazyImport';
 import { Register } from 'components/Register';
 import { ResetPassowrd } from 'components/ResetPassword';
 import { ForgotPassword } from 'components/ForgotPassword';
+import { AuthProtect } from 'components/AuthProtect';
 import './App.scss';
 import './styles/theme.scss';
-import { AuthProtect } from 'components/AuthProtect';
-import { Obj } from 'global/interface';
-import { ROLE } from 'global/enum';
+
 
 function App() {
   const path = useLocation();
@@ -64,7 +65,7 @@ function App() {
           {(!crrUser || !crrUser.success || (crrUser && crrUser.success && (crrUser.response as Obj)?.data.userInfor.role) === ROLE.STUDENT) ?
             <Route path={PATH.STUDENT_NO_ROLE.HOME.route} element={<LayoutMain />} /> : (
               ((crrUser && crrUser.success && (crrUser.response as Obj)?.data.userInfor.role) === ROLE.ADMIN) ?
-                <Route path={PATH.ADMIN.HOME.route} element={<AdminLayout />} /> : <></>
+                <Route path={PATH.STUDENT_NO_ROLE.HOME.route} element={<AdminLayout />} /> : <></>
             )
           }
 

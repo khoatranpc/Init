@@ -1,0 +1,153 @@
+.container-posts {
+    position: relative;
+    padding-top: 0.3rem;
+
+    .round {
+        background-color: var(--white-silver);
+    }
+
+    .ant-drawer {
+        position: fixed !important;
+    }
+
+    .post-item {
+        border-radius: 1rem;
+        padding: 1rem;
+        margin: auto;
+        margin-bottom: 1rem;
+        background-color: var(--white-base);
+        max-width: 50%;
+
+        .video-status {
+            gap: 0.5rem;
+            margin: 0 auto;
+            margin-bottom: 1.5rem;
+            height: fit-content;
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+        }
+
+        .bold {
+            font-weight: 500;
+        }
+
+        .author-status {
+            max-height: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0.3rem;
+
+            .author-video {
+                display: flex;
+
+                .infor {
+                    padding-left: 0.3rem;
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+
+            .comment-status {
+                flex: 1;
+                max-height: 220px;
+
+                .comment-item {
+                    display: flex;
+                    margin-bottom: 0.3rem;
+                }
+
+                .content-comment {
+                    padding-left: 0.2rem;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .comment-all {
+                    max-height: 100%;
+                    overflow-y: scroll;
+                }
+            }
+        }
+
+        .video-react-controls-enabled {
+            max-width: 30%;
+            padding: 0 !important;
+            border-radius: 1rem;
+            height: fit-content;
+            background-color: transparent;
+            margin: auto;
+
+
+            .video-react-big-play-button {
+                display: none;
+            }
+
+            .control-bar-video {
+                background-color: transparent;
+
+                .video-react-volume-menu-button-horizontal {
+                    &::before {
+                        color: var(--orange-base);
+                    }
+                }
+
+                .video-react-play-progress.video-react-slider-bar,
+                .video-react-volume-level {
+                    background-color: var(--orange-base);
+
+                    &::before {
+                        color: var(--orange-base);
+                    }
+
+                }
+
+                .video-react-load-progress>div {
+                    background-color: var(--orange-base-opacity);
+                }
+
+                .video-react-time-control,
+                .video-react-play-control,
+                .video-react-icon-fullscreen {
+                    display: none;
+                }
+            }
+
+
+            .video-react-video {
+                max-width: 100%;
+                position: static;
+                border-radius: 1rem;
+            }
+        }
+
+        .fnc-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 70%;
+            margin: 0 auto;
+            border-top: 1px solid var(--gray);
+            margin-top: 1rem;
+
+            .icon-comment {
+                width: 1.5rem;
+                height: 1.5rem;
+                cursor: pointer;
+            }
+
+            .like-status {
+                margin-right: 1rem;
+
+                .heart {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    cursor: pointer;
+
+                    &.heart-liked {
+                        fill: var(--orange-base);
+                    }
+                }
+            }
+        }
+    }
+}

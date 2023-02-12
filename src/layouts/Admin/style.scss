@@ -33,6 +33,10 @@
                         }
                     }
 
+                    .icon-student {
+                        fill: var(--orange);
+                    }
+
                     .icon-course,
                     .icon-mess {
                         path {
@@ -56,6 +60,8 @@
 
                 .item-collapse {
                     padding-left: 0.9rem;
+                    display: flex;
+                    align-items: center;
                     text-align: left;
 
                     &:hover {
@@ -78,6 +84,11 @@
 
         .tab-content {
             flex: 1;
+            padding: 0.3rem;
+
+            >div {
+                height: 100%;
+            }
         }
     }
 }

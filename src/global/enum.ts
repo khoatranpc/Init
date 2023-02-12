@@ -27,3 +27,8 @@ export enum STATUS_COURSE {
     END = 'END',
     COMMING_SOON = 'COMMING_SOON'
 }
+export enum STATUS_USER {
+    ALL = 'ALL',
+    ACTIVATE = 'ACTIVATE',
+    DEACTIVATE = 'DEACTIVATE',
+}

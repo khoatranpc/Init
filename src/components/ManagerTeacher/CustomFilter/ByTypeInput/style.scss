@@ -1,0 +1,20 @@
+.ag-popup {
+    .ag-menu {
+        &.ag-ltr.ag-popup-child {
+            &:has(.container-custom-filter) {
+                transform: translate(-5rem, 0);
+                background-color: transparent;
+                border: none;
+            }
+
+            &:has(.filter) {
+                padding: 0.3rem;
+                transform: translate(-5rem, 0);
+            }
+        }
+    }
+
+    .container-custom-filter {
+        background-color: transparent;
+    }
+}

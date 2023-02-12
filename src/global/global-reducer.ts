@@ -1,4 +1,5 @@
 import { JumpTabAction, Obj, ToastAction } from "./interface";
+import { createGlobalReducer } from "utils/redux";
 
 export const HANDLE_JUMP_TAB_REQUEST = 'HANDLE_JUMP_TAB_REQUEST';
 export const HANDLE_JUMP_TAB_CLEAR = 'HANDLE_JUMP_TAB_CLEAR';
@@ -50,3 +51,7 @@ export const HandleViewDetailCourse = (state: Obj | null = null, action: ToastAc
             return state;
     }
 }
+
+export const VIEW_DETAIL_USER_REQUEST = 'VIEW_DETAIL_USER_REQUEST';
+export const VIEW_DETAIL_USER_CLEAR = 'VIEW_DETAIL_USER_CLEAR';
+export const HandleViewDetailUser = createGlobalReducer(VIEW_DETAIL_USER_REQUEST, VIEW_DETAIL_USER_CLEAR);

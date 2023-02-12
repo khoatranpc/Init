@@ -1,8 +1,12 @@
 import React from 'react'
-import { Empty } from 'antd';
+import logo from 'assets/imgs/logo.png';
+import './style.scss';
 
 export const NoData = () => {
   return (
-    <Empty />
+    <div className="over-lay-no-data">
+      <img src={logo} alt="" />
+      <p>Không có dữ liệu</p>
+    </div>
   )
 }

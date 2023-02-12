@@ -14,7 +14,7 @@ export const PATH = {
     ADMIN: {
         HOME: {
             title: 'Trang chủ',
-            route: '/admin'
+            route: '/'
         }
     },
     AUTH: {

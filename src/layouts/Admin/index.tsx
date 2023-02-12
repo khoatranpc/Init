@@ -18,6 +18,7 @@ import { ReactComponent as IconLogout } from 'assets/svgs/icon-logout.svg';
 import { ReactComponent as IconChat } from 'assets/svgs/icon-chat.svg';
 import { ReactComponent as IconList } from 'assets/svgs/icon-list.svg';
 import { ReactComponent as IconCalendar } from 'assets/svgs/icon-calendar.svg';
+import { ReactComponent as IconStudent } from 'assets/svgs/icon-student.svg';
 import './style.scss';
 
 
@@ -47,6 +48,12 @@ const AdminLayout = () => {
             title: <p className="title-tab"><TeacherIcon className="icon-teacher" />Giáo viên</p>,
             key: 'MANAGER_TEACHER',
             component: <ManagerTeacher />,
+            isAuth: true,
+        },
+        {
+            title: <p className="title-tab"><IconStudent className="icon-student" />Học viên</p>,
+            key: 'MANAGER_STUDENT',
+            component: <>Quản lý học viên</>,
             isAuth: true,
         },
         {

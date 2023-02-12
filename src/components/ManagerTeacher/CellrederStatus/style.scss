@@ -1,0 +1,18 @@
+.stt-teacher {
+
+    button.circle {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        border: none;
+        margin-right: 0.3rem;
+
+        &.green {
+            background-color: var(--green);
+        }
+
+        &.red {
+            background-color: var(--error-text);
+        }
+    }
+}

@@ -4,7 +4,7 @@ import { ROLE } from "global/enum";
 import { Obj, PayloadJumpTab, PayloadToast } from "global/interface";
 import { PATH } from "global/path";
 import { State } from "redux-saga/reducer";
-import { handleJumpTab, toastMessage } from "global/global-action";
+import { handleJumpTab, handleViewDetailUser, toastMessage } from "global/global-action";
 import { clearDataUser } from "components/AuthProtect/action";
 
 export const useRedirectRoute = () => {
@@ -78,5 +78,15 @@ export const useJumpTab = () => {
             idTab: key
         }
         dispatch(handleJumpTab(payload))
+    }
+}
+
+export const useViewDetailUser = () => {
+    const dispatch = useDispatch();
+    return (id: string, clear?: boolean) => {
+        const payload = {
+            id
+        }
+        dispatch(handleViewDetailUser(payload, clear))
     }
 }
