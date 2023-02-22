@@ -1,4 +1,5 @@
 .toast-container {
+    z-index: 101;
 
     .toast-notifi {
         img.logo-notification {
@@ -14,6 +15,7 @@
             background-color: var(--orange-base);
         }
     }
+
     &.error {
         color: var(--white-base);
 

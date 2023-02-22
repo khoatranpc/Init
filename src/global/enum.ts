@@ -14,3 +14,21 @@ export enum ROLE {
     TEACHER = 'TEACHER',
     ADMIN = 'ADMIN'
 }
+export enum DANCE_MAJOR {
+    SEXY_DANCE = 'SEXY_DANCE',
+    KPOP_DANCE = 'KPOP_DANCE',
+    ANTIES_QUES_DANCE = 'ANTIES_QUES_DANCE',
+    SHUFFLE_DANCE = 'SHUFFLE_DANCE',
+    ALL = 'ALL'
+}
+export enum STATUS_COURSE {
+    ALL = 'ALL',
+    RUNNING = 'RUNNING',
+    END = 'END',
+    COMMING_SOON = 'COMMING_SOON'
+}
+export enum STATUS_USER {
+    ALL = 'ALL',
+    ACTIVATE = 'ACTIVATE',
+    DEACTIVATE = 'DEACTIVATE',
+}

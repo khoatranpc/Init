@@ -1,0 +1,37 @@
+.container-comment {
+    .container-comment-status {
+        max-height: 100%;
+        position: relative;
+        padding-bottom: 5rem;
+
+        .comment-item {
+            display: flex;
+            gap: 0.3rem;
+        }
+    }
+
+    .post-comment {
+        display: flex;
+        background-color: var(--white-base);
+        gap: 0.3rem;
+        padding: 0.3rem;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+
+        .ant-form {
+            flex: 1;
+        }
+
+        .ant-form-item {
+            margin: 0;
+        }
+
+        .btn-post {
+            width: 100%;
+            text-align: right;
+            padding: 0;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.container-manager-class {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .top-switch {
+        .ant-switch-inner {
+            background-color: var(--orange-base) !important;
+        }
+    }
+
+    .container-content-layout {
+        flex: 1;
+    }
+}

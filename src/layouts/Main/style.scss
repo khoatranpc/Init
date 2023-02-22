@@ -1,0 +1,9 @@
+.container-main {
+    background-color: var(--white-base);
+    max-width: 1920px;
+    margin: 0 auto;
+
+    li:has(#tab-content-tab-HOME) {
+        margin-left: auto;
+    }
+}

@@ -1,10 +1,14 @@
 import { all } from "redux-saga/effects";
-import { queryUserCreate, queryUserForgotPassword, queryUserLogin } from "./sagas/user";
+import { queryDataCompany } from "./sagas/company";
+import { queryUserCreate, queryUserForgotPassword, queryUserGetInformation, queryUserLogin, queryUserResetPassword } from "./sagas/user";
 
 export function* rootSaga() {
   yield all([
     queryUserCreate(),
     queryUserLogin(),
-    queryUserForgotPassword()
+    queryUserForgotPassword(),
+    queryUserResetPassword(),
+    queryUserGetInformation(),
+    queryDataCompany()
   ]);
 }

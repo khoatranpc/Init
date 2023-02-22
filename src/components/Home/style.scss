@@ -1,0 +1,116 @@
+.container-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    .slider {
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .container-main {
+        padding-top: 29px;
+    }
+
+    .anchor-phoenix {
+        position: fixed;
+        z-index: 2;
+        left: 0;
+        width: 100%;
+        background-color: var(--white-base);
+        border-bottom: 1px solid var(--orange-base);
+
+        .ant-anchor {
+            display: flex;
+
+            .ant-anchor-ink {
+                &:first-child {
+                    display: none;
+                }
+            }
+
+            .ant-anchor-link-title {
+                text-decoration: none;
+
+                &.ant-anchor-link-title-active {
+                    color: var(--orange-base);
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+    .main {
+        padding: 0 2rem;
+
+        .intro-phoenix {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+
+            .left,
+            .right {
+                flex: 1;
+            }
+
+            .left {
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .subject {
+            margin-top: 1rem;
+        }
+
+        .subject,
+        .modern-dance {
+            ul {
+                li {
+                    margin-bottom: 0.4rem;
+                }
+            }
+
+            img.sexy-image-intro {
+                max-width: 100%;
+            }
+        }
+
+        .embedded-video {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .guide-join-phoenix {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .ant-steps.ant-steps-vertical {
+                width: fit-content;
+
+                u.color-blue-base {
+                    color: var(--blue-base);
+                    cursor: pointer;
+                }
+
+                .ant-steps-item-icon {
+                    background-color: var(--orange-base);
+                    border-color: var(--orange-base);
+                }
+
+                .ant-steps-item-tail {
+                    &::after {
+                        background-color: var(--orange-base);
+                        width: 1px;
+                    }
+                }
+            }
+        }
+    }
+}

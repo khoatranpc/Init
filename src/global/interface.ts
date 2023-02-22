@@ -26,6 +26,39 @@ export interface GridApi extends AgGridReact {
 export interface Content {
     key: string;
     component: React.ReactElement;
-    title?: string;
+    title?: string | React.ReactElement;
     customClick?(): void;
+    isAuth?: boolean;
+}
+export interface PayloadJumpTab {
+    idTab?: string,
+    data?: Obj
+}
+export interface JumpTabAction extends AnyAction {
+    type: string;
+    payload: PayloadJumpTab
+}
+export interface PayloadToast {
+    show?: boolean;
+    message?: string;
+    type?: boolean;
+    position?: 'top-start' |
+    'top-center' |
+    'top-end' |
+    'middle-start' |
+    'middle-center' |
+    'middle-end' |
+    'bottom-start' |
+    'bottom-center' |
+    'bottom-end';
+}
+export interface ToastAction extends AnyAction {
+    type: string;
+    payload: PayloadToast
+}
+export interface ViewDetailCourse extends AnyAction {
+    type: string;
+    payload: {
+        id: string
+    }
 }

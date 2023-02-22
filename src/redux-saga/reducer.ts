@@ -1,11 +1,20 @@
+import { HandleViewDetailCourse, HandleViewDetailUser, MoveTabControl, ToastHandle } from "global/global-reducer";
 import { combineReducers } from "redux";
-import { HeaderReducer } from "components/Home/reducer";
-import { UserCreate, UserForgotPassword, UserLogin } from "./reducers/user";
+import { DataCompany } from "./reducers/company";
+import { UserCreate, UserForgotPassword, UserLogin, UserResetPassword } from "./reducers/user";
 const rootReducer = combineReducers({
-    headerReducer: HeaderReducer,
+    /* Global */
+    moveTabControl: MoveTabControl,
+    toastHandle: ToastHandle,
+    currentViewDetailCourse: HandleViewDetailCourse,
+    handleViewDetailUser:HandleViewDetailUser,
+    /* User */
     userCreate: UserCreate,
     userLogin: UserLogin,
-    userForgotPassword: UserForgotPassword
+    userForgotPassword: UserForgotPassword,
+    userResetPassword: UserResetPassword,
+    /* Company */
+    dataCompany: DataCompany
 });
 
 export type State = ReturnType<typeof rootReducer>;

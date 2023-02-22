@@ -1,0 +1,12 @@
+.custom-carousel {
+    width: fit-content;
+
+    .carousel-inner {
+        width: fit-content;
+    }
+
+    img {
+        max-width: 100%;
+        object-fit: cover;
+    }
+}

@@ -1,7 +1,8 @@
-import React, { forwardRef, useState, useEffect, useImperativeHandle, useRef } from 'react';
+import React, { forwardRef, useState, useImperativeHandle, useRef } from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import { CellClickedEvent, ColDef, ColGroupDef, GetRowNodeIdFunc, PaginationChangedEvent } from 'ag-grid-community';
+import { CellClickedEvent, ColDef, ColGroupDef, GetRowNodeIdFunc, PaginationChangedEvent, RowClickedEvent } from 'ag-grid-community';
 import { NoData } from './NoData';
+import { DataGridLoading } from './Loading';
 import './style.scss';
 
 interface Props {
@@ -15,6 +16,7 @@ interface Props {
     onPaginationChanged?: (event: PaginationChangedEvent) => void;
     onCellClicked?: (event: CellClickedEvent) => void;
     getRowNodeId?: GetRowNodeIdFunc;
+    onRowClicked?: (event: RowClickedEvent) => void;
     onGridReady?: () => void;
 }
 
@@ -28,9 +30,6 @@ const DataGrid = forwardRef((props: Props, ref: ((instance: AgGridReact) => void
         setInitGrid(true);
         sizeColumnsToFit();
     }
-    useEffect(() => {
-
-    }, [])
     const sizeColumnsToFit = () => {
         gridRef.current?.api.sizeColumnsToFit();
     }
@@ -45,21 +44,23 @@ const DataGrid = forwardRef((props: Props, ref: ((instance: AgGridReact) => void
                     sortable: props.sortable,
                     resizable: false,
                 }}
+                onRowClicked={props.onRowClicked}
                 onCellClicked={props.onCellClicked}
                 getRowNodeId={props.getRowNodeId}
                 paginationPageSize={props.paginationPageSize}
                 onPaginationChanged={props.onPaginationChanged}
                 noRowsOverlayComponentFramework={NoData}
+                loadingOverlayComponent={DataGridLoading}
                 onGridReady={onGridReady}
                 onViewportChanged={sizeColumnsToFit}
                 onGridSizeChanged={sizeColumnsToFit}
-                headerHeight={props.headerHeight}
+                headerHeight={props.headerHeight ?? 48}
                 rowHeight={props.rowHeight}
                 rowData={props.rowData}
                 columnDefs={props.columnDefs}>
 
             </AgGridReact>
-        </div>
+        </div >
     )
 })
 export default DataGrid

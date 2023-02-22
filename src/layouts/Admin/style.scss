@@ -1,0 +1,94 @@
+.container-admin-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .layout-tab-in-admin {
+        flex: 1;
+        display: flex;
+
+        ul.custom-tab-content {
+            position: static;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            svg {
+                width: 1rem;
+                height: 1rem;
+            }
+
+            button {
+                &.active {
+                    svg {
+                        fill: var(--orange);
+                    }
+
+                    .icon-teacher {
+                        fill: none;
+
+                        path {
+                            stroke: var(--orange);
+
+                        }
+                    }
+
+                    .icon-student {
+                        fill: var(--orange);
+                    }
+
+                    .icon-course,
+                    .icon-mess {
+                        path {
+                            fill: var(--orange) !important;
+                        }
+                    }
+                }
+            }
+
+            .ant-collapse-item {
+                padding: 0;
+                margin: 0 !important;
+
+                * {
+                    background-color: var(--white-base);
+                }
+
+                .ant-collapse-header {
+                    padding: 0;
+                }
+
+                .item-collapse {
+                    padding-left: 0.9rem;
+                    display: flex;
+                    align-items: center;
+                    text-align: left;
+
+                    &:hover {
+                        color: var(--orange-base);
+                    }
+
+                    .icon-group {
+                        margin-right: 0.3rem;
+                    }
+                }
+            }
+
+            .title-tab {
+                margin: 0;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+
+        .tab-content {
+            flex: 1;
+            padding: 0.3rem;
+
+            >div {
+                height: 100%;
+            }
+        }
+    }
+}

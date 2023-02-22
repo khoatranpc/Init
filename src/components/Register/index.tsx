@@ -5,7 +5,10 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import { Input } from 'antd';
 import { GENDER } from 'global/enum';
+import { Obj } from 'global/interface';
 import { State } from 'redux-saga/reducer';
 import { USER_CREATE_CLEAR } from '../../redux-saga/reducers/user';
 import { queryCreateUser } from './action';
@@ -70,12 +73,15 @@ export const Register = () => {
                     <div className="div1">
                         <Form.Group className="mb-3">
                             <Form.Label>Họ và tên <span className="error-text">*</span></Form.Label>
-                            <Form.Control size='sm' isInvalid={!isValid && errors.username ? true : false} type="text" name="username" onChange={handleChange} onBlur={handleBlur} value={values.username} placeholder="Vd: Đỗ Mạnh Trường" />
+                            <Input
+                                type="text" name="username" onChange={handleChange} onBlur={handleBlur} value={values.username} placeholder="Vd: Đỗ Mạnh Trường"
+                                status={`${!isValid && errors.username ? 'error' : ''}`}
+                            />
                             {errors.username && touched.username && <p className="error-text">{errors.username}</p>}
                         </Form.Group></div>
                     <div className="div2">
                         <div className="pick-gender">
-                            <Form.Label>Giới tính</Form.Label>
+                            <Form.Label>Giới tính <small>{'(Tùy chọn)'}</small></Form.Label>
                             <br />
                             <div className="row">
                                 <div>
@@ -96,25 +102,39 @@ export const Register = () => {
                     <div className="div3">
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email <span className="error-text">*</span></Form.Label>
-                            <Form.Control size='sm' isInvalid={!isValid && errors.email ? true : false} type="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email} placeholder="Nhập email của bạn tại đây" />
+                            <Input
+                                type="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email} placeholder="Nhập email của bạn tại đây"
+                                status={`${!isValid && errors.email ? 'error' : ''}`}
+                            />
                             {errors.email && touched.email && <p className="error-text">{errors.email}</p>}
                         </Form.Group>
                     </div>
                     <div className="div4">
                         <Form.Group className="mb-3" controlId="formBasicPassword" >
                             <Form.Label>Mật khẩu <span className="error-text">*</span></Form.Label>
-                            <Form.Control size='sm' isInvalid={!isValid && errors.password ? true : false} type="password" name="password" onBlur={handleBlur} onChange={handleChange} placeholder="Password" value={values.password} />
+                            <Input.Password
+                                type="password" name="password" onBlur={handleBlur} onChange={handleChange} placeholder="Password" value={values.password}
+                                status={`${!isValid && errors.password ? 'error' : ''}`}
+                                iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                            />
                             {errors.password && touched.password && <p className="error-text">{errors.password}</p>}
                         </Form.Group>
                     </div>
-                    <div className="div5">  <Form.Group className="mb-3" controlId="formBasicPassword" >
-                        <Form.Label>Số điện thoại</Form.Label>
-                        <Form.Control size='sm' type="tel" name="phone" onBlur={handleBlur} onChange={handleChange} value={values.phone} />
-                    </Form.Group></div>
+                    <div className="div5">
+                        <Form.Group className="mb-3" controlId="formBasicPassword" >
+                            <Form.Label>Số điện thoại <small>{'(Tùy chọn)'}</small></Form.Label>
+                            <Input
+                                type="tel" name="phone" onBlur={handleBlur} onChange={handleChange} value={values.phone}
+                            />
+                        </Form.Group></div>
                     <div className="div6">
                         <Form.Group className="mb-3" controlId="formBasicPassword" >
                             <Form.Label>Xác nhận mật khẩu <span className="error-text">*</span></Form.Label>
-                            <Form.Control size='sm' isInvalid={!isValid && errors.confirmPassword ? true : false} type="password" name="confirmPassword" onBlur={handleBlur} onChange={handleChange} placeholder="Password" value={values.confirmPassword} />
+                            <Input.Password
+                                type="password" name="confirmPassword" onBlur={handleBlur} onChange={handleChange} placeholder="Password" value={values.confirmPassword}
+                                status={`${!isValid && errors.confirmPassword ? 'error' : ''}`}
+                                iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                            />
                             {errors.confirmPassword && touched.confirmPassword && <p className="error-text">{errors.confirmPassword}</p>}
                         </Form.Group>
                     </div>
@@ -140,7 +160,7 @@ export const Register = () => {
                 type={createUser?.success as boolean}
                 show={showToast}
                 position='top-center'
-                message={`${createUser?.response?.message as string}${createUser?.success ? ' Login now.' : ''}`}
+                message={`${(createUser?.response as Obj)?.message as string}${createUser?.success ? ' Login now.' : ''}`}
             />
         </div>
     )

@@ -1,0 +1,72 @@
+.item-class {
+    width: 20%;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+
+
+    .bounda {
+        box-shadow: var(--orange-base-opacity) 0px 0.5rem 1.2rem 0px;
+        border-radius: 0.3rem;
+        cursor: pointer;
+
+        &:hover {
+            transform: translateY(-1rem);
+        }
+
+        .image {
+            text-align: center;
+            min-height: 50%;
+            border-bottom: 1px solid var(--orange-base);
+            padding-bottom: 0.3rem;
+            margin-bottom: 0.3rem;
+
+            img {
+                max-width: 100%;
+                min-height: 10rem;
+            }
+        }
+
+        .information-class {
+            padding: 0 0.3rem;
+
+            p {
+                margin: 0;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 1rem;
+                font-weight: bold;
+            }
+
+            .size-class {
+                .green {
+                    text-decoration: 2px underline var(--green);
+                }
+
+                .red {
+                    text-decoration: 2px underline var(--error-text);
+                }
+            }
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .join-class {
+            min-height: 3rem;
+
+            .btn-join {
+                background-color: var(--orange-base);
+                border: none;
+            }
+
+            div.loading-action div.logo-loading {
+                position: static;
+                -webkit-box-align: start;
+                -webkit-box-pack: start;
+            }
+        }
+    }
+}

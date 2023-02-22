@@ -40,9 +40,6 @@ export const ForgotPassword = () => {
             setLoading(false);
             setShowToast(true);
         }
-        return () => {
-            dispatch({ type: USER_FORGOT_PASSWORD_CLEAR })
-        }
     }, [requestForgotPassword])
     return (
         <div className="forgot-password-page">
@@ -58,17 +55,18 @@ export const ForgotPassword = () => {
                 </div>
             </Form>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <p><Link to='/auth/login' replace>Đã có tài khoản?</Link></p>
-                <p><Link to='/auth/register' replace>Chưa có tài khoản?</Link></p>
+                <p className='text-under'><Link to='/auth/login' replace>Đã có tài khoản?</Link></p>
+                <p className='text-under'><Link to='/auth/register' replace>Chưa có tài khoản?</Link></p>
             </div>
             <Toaster
                 show={showToast}
                 onClose={() => {
                     setShowToast(false);
+                    dispatch({ type: USER_FORGOT_PASSWORD_CLEAR })
                 }}
                 type={requestForgotPassword?.success as boolean}
                 position='top-center'
-                message={requestForgotPassword?.response?.message as string} />
+                message={(requestForgotPassword?.response as Obj)?.message as string} />
         </div>
     )
 }

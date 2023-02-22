@@ -1,0 +1,30 @@
+.footer-page {
+    background-color: var(--black-1);
+    display: flex;
+    color: var(--white-base);
+    padding: 2.5rem;
+    gap: 5rem;
+    justify-content: center;
+    position: relative;
+    bottom: 0;
+
+    .right {
+        .link {
+            display: flex;
+            justify-content: space-between;
+
+            .item {
+                svg {
+                    width: 2.8rem;
+                    transition: 0.2s;
+                }
+
+                &:hover {
+                    svg {
+                        width: 3.2rem;
+                    }
+                }
+            }
+        }
+    }
+}

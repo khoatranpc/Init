@@ -1,0 +1,38 @@
+.reset-password-page {
+    width: 50vw;
+    height: fit-content;
+    background: linear-gradient(rgba(255, 255, 255, 0.912), rgba(255, 255, 255, 0.912)), url('../../assets/imgs/logo.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: var(--black);
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+
+    .error-text {
+        color: var(--error-text);
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    .btn-fnc {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .btn-login {
+            background-color: var(--orange-base);
+            border: none;
+
+            &:hover {
+                background-color: var(--orange);
+            }
+        }
+
+        .btn-switch-register {
+            margin-left: auto;
+        }
+    }
+}

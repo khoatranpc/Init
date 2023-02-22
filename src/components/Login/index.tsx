@@ -3,10 +3,10 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import Button from 'react-bootstrap/Button';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import { Input } from 'antd';
 import Form from 'react-bootstrap/Form';
 import * as Yup from 'yup';
-import { ROLE } from 'global/enum';
-import { PATH } from 'global/path';
 import { Obj, Query } from 'global/interface';
 import { State } from 'redux-saga/reducer';
 import { queryLoginUser } from './action';
@@ -49,15 +49,6 @@ export const Login = () => {
                 if ((userLogin?.response as Obj)?.data.token) {
                     localStorage.setItem('access_token', 'Bearer ' + (userLogin?.response as Obj)?.data.token as string);
                 }
-                setTimeout(() => {
-                    switch ((userLogin?.response as Obj)?.data.userInfor.role as ROLE) {
-                        case ROLE.STUDENT:
-                            navigate(PATH.STUDENT_NO_ROLE.HOME.route, { replace: true });
-                            break;
-                        default:
-                            break;
-                    }
-                }, 1500)
             }
         }
     }, [userLogin])
@@ -67,13 +58,20 @@ export const Login = () => {
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email <span className="error-text">*</span></Form.Label>
-                    <Form.Control isInvalid={!isValid && errors.email ? true : false} type="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email} placeholder="Nhập email của bạn tại đây" />
+                    <Input
+                        type="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email} placeholder="Nhập email của bạn tại đây"
+                        status={`${!isValid && errors.email ? 'error' : ''}`}
+                    />
                     {errors.email && touched.email && <p className="error-text">{errors.email}</p>}
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword" >
                     <Form.Label>Mật khẩu <span className="error-text">*</span></Form.Label>
-                    <Form.Control isInvalid={!isValid && errors.password ? true : false} type="password" name="password" onBlur={handleBlur} onChange={handleChange} placeholder="Password" value={values.password} />
+                    <Input.Password
+                        type="password" name="password" onBlur={handleBlur} onChange={handleChange} placeholder="Password" value={values.password}
+                        status={`${!isValid && errors.password ? 'error' : ''}`}
+                        iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                    />
                     {errors.password && touched.password && <p className="error-text">{errors.password}</p>}
                 </Form.Group>
                 <div className="btn-fnc">
@@ -93,7 +91,7 @@ export const Login = () => {
                 }}
                 type={userLogin?.success as boolean}
                 position='top-center'
-                message={userLogin?.response?.message as string} />
+                message={(userLogin?.response as Obj)?.message as string} />
         </div>
     )
 }

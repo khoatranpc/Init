@@ -1,0 +1,16 @@
+.list-student-enroll-class {
+    height: 100%;
+
+    .ag-root-wrapper .ag-root-wrapper-body {
+
+        .ag-root {
+            .ag-header {
+                &.ag-pivot-off {
+                    height: 28px !important;
+                    min-height: 28px !important;
+                }
+
+            }
+        }
+    }
+}
