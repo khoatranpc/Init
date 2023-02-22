@@ -139,12 +139,20 @@
                                     &.red {
                                         color: var(--error-text) !important;
                                     }
+
+                                    &.yellow {
+                                        color: var(--yellow) !important;
+                                    }
                                 }
                             }
                         }
 
                     }
                 }
+            }
+
+            .ag-row {
+                cursor: pointer;
             }
         }
 

@@ -1,0 +1,20 @@
+.cell-render-action-video {
+    svg {
+        width: 2rem;
+        height: 2rem;
+
+        &.view-video {
+            fill: var(--orange-base);
+            margin-right: 1rem;
+        }
+
+        &.edit-video {
+            width: 1.5rem;
+            height: 1.5rem;
+
+            path {
+                stroke: var(--blue-base);
+            }
+        }
+    }
+}

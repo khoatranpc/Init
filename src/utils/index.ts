@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import parsePhoneNumber from 'libphonenumber-js';
+import { format } from 'date-fns'
+
 const uuid = () => {
     return uuidv4 as unknown as string;
 }
@@ -41,4 +43,8 @@ const formatNumber = (val: number | string | undefined | null, digit?: number | 
         return sign < 0 ? '-' + result : result;
     }
 }
-export { uuid, formatPhoneNumber, scrollToTop, formatNumber };
+
+const formatDateToString = (date: Date, formatString?: string) => {
+    return format(date, !formatString ? 'dd/MM/yyyy' : formatString);
+}
+export { uuid, formatPhoneNumber, scrollToTop, formatNumber, formatDateToString };

@@ -1,6 +1,6 @@
 import React, { forwardRef, useState, useImperativeHandle, useRef } from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import { CellClickedEvent, ColDef, ColGroupDef, GetRowNodeIdFunc, PaginationChangedEvent } from 'ag-grid-community';
+import { CellClickedEvent, ColDef, ColGroupDef, GetRowNodeIdFunc, PaginationChangedEvent, RowClickedEvent } from 'ag-grid-community';
 import { NoData } from './NoData';
 import { DataGridLoading } from './Loading';
 import './style.scss';
@@ -16,6 +16,7 @@ interface Props {
     onPaginationChanged?: (event: PaginationChangedEvent) => void;
     onCellClicked?: (event: CellClickedEvent) => void;
     getRowNodeId?: GetRowNodeIdFunc;
+    onRowClicked?: (event: RowClickedEvent) => void;
     onGridReady?: () => void;
 }
 
@@ -43,6 +44,7 @@ const DataGrid = forwardRef((props: Props, ref: ((instance: AgGridReact) => void
                     sortable: props.sortable,
                     resizable: false,
                 }}
+                onRowClicked={props.onRowClicked}
                 onCellClicked={props.onCellClicked}
                 getRowNodeId={props.getRowNodeId}
                 paginationPageSize={props.paginationPageSize}

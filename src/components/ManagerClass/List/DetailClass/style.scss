@@ -1,0 +1,78 @@
+.container-detai-manager-class {
+    .back-list {
+        cursor: pointer;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .content-main {
+        display: flex;
+        gap: 1rem;
+
+        .left,
+        .right {
+            flex: 1;
+        }
+
+        .video-react-big-play-button {
+            display: none;
+        }
+
+        .video-thumbnail {
+            >div {
+                background-color: transparent;
+            }
+        }
+
+        .video-react-control-bar {
+            border-radius: 0 0 1rem 1rem;
+        }
+
+        .video-react .video-react-video {
+            border-radius: 1rem;
+        }
+
+        .left {
+            .price {
+                background-color: var(--white-1);
+                color: var(--orange-base);
+                font-size: 1.5rem;
+                font-weight: 500;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            svg {
+                width: 1rem;
+                height: 1rem;
+            }
+
+            .vote {
+                display: flex;
+                font-weight: 500;
+                align-items: center;
+            }
+        }
+
+        .right {
+            .custom-tab-content {
+                flex-direction: row;
+                box-shadow: none;
+
+                .nav-link.active {
+                    text-decoration: underline;
+                }
+            }
+
+            .tab-content {
+                height: 100%;
+            }
+        }
+    }
+}
